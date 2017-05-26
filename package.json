@@ -1,0 +1,56 @@
+{
+  "name": "portiz-resume",
+  "version": "1.0.0",
+  "description": "Portfolio site which doubles as a resume.",
+  "scripts": {
+    "start:dev": "webpack-dev-server --hot --inline --port 3001 --config webpack.dev.js --content-base server/",
+    "start:server": "babel-node server",
+    "test:lint": "esw --clear webpack.dev.js src/**/*.js",
+    "test:lint:watch": "npm run test:lint -s -- --watch",
+    "test:unit": "jest",
+    "test:unit:watch": "npm run test:unit -s -- --watch"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpe?g|png|gif|eot|otf|webp|svg|ttf|woff2?|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/jestMocks/fileMocks.js",
+      "\\.(s?css|less)": "<rootDir>/jestMocks/styleMock.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerlocian/portiz-resume.git"
+  },
+  "author": "Patrick Ortiz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gerlocian/portiz-resume/issues"
+  },
+  "homepage": "https://github.com/gerlocian/portiz-resume#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.2",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-watch": "^3.1.0",
+    "express": "^4.15.3",
+    "file-loader": "^0.11.1",
+    "flux": "^3.1.2",
+    "img-loader": "^2.0.0",
+    "jest": "^20.0.4",
+    "node-sass": "^4.5.3",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-test-renderer": "^15.5.4",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
