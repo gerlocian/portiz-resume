@@ -2,7 +2,7 @@
 
 import { EventEmitter } from 'events';
 import Dispatcher from '../../dispatcher/dispatcher';
-import * as ActionTypes from '../../actions/resume.action-types';
+import * as ActionTypes from '../../actions/action-types';
 import ResumeData from './resume.data.json';
 
 const ResumeStore = () => {
@@ -28,7 +28,7 @@ const ResumeStore = () => {
     }
 
     Dispatcher.register(action => {
-        if (action.type === ActionTypes.RESUME_LOAD) {
+        if (action.type === ActionTypes.INITIALIZE_STORES) {
             if (!data) {
                 data = ResumeData;
                 emit();

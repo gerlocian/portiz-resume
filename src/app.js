@@ -1,22 +1,22 @@
 'use strict';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ResumeStore from './stores/resume/resume.store';
-import * as Actions from './actions/resume.actions';
-
-import PageHeader from './components/pageheader/pageheader.component';
-
 import './styles/base.scss';
 
-const render = () => {
+import React from 'react';
+import ReactDOM from 'react-dom';
+import * as Actions from './actions/actions';
+
+import MainBody from './components/mainbody/mainbody.component';
+import SideBar from './components/sidebar/sidebar.component';
+
+Actions.initializeStores();
+
+window.addEventListener('load', () => {
     ReactDOM.render(
         <div className="page-container">
-            <PageHeader/>
+            <MainBody/>
+            <SideBar/>
         </div>,
         document.getElementById('site')
     );
-};
-
-ResumeStore.addListener(render);
-Actions.loadResume();
+});

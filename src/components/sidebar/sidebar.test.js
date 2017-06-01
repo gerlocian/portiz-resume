@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
+import Renderer from 'react-test-renderer';
 import SideBar from './sidebar.component';
 
 describe('Sidebar', () => {
@@ -9,5 +10,10 @@ describe('Sidebar', () => {
         expect(ReactTestUtils.isCompositeComponentElement(
             <SideBar/>
         )).toBe(true);
+    });
+
+    it('should match the snapshot', () => {
+        const component = Renderer.create(<SideBar/>).toJSON();
+        expect(component).toMatchSnapshot();
     });
 });
