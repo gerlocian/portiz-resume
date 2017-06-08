@@ -1,24 +1,30 @@
 @import '../../styles/shadow';
 
-.container {
-  @include boxShadow(1);
+@media screen {
+  .container {
+    @include boxShadow(1);
 
-  background-color: #fff;
-  box-sizing: border-box;
-  margin: 0 auto 20px auto;
-  position: relative;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin: 0 auto 20px auto;
+    position: relative;
 
-  .container-header {
-    margin: 0;
-    padding: 20px;
-  }
+    .container-header {
+      margin: 0;
+      padding: 20px;
+    }
 
-  .container-body {
-    overflow: hidden;
-    padding: 0;
+    .container-body {
+      overflow: hidden;
+      padding: 0;
 
-    .container-body-content {
-      margin: 0 20px 30px 20px;
+      .container-body-content {
+        margin: 0 20px 30px 20px;
+      }
     }
   }
+}
+
+@media print {
+
 }

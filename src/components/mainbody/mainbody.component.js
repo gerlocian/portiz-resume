@@ -1,23 +1,43 @@
 'use strict';
 
 import React from 'react';
-import Container from '../container/container.component';
+import ResumeStore from '../../stores/resume/resume.store';
 import './mainbody.style.scss';
 
 class MainBody extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.updateState = this.updateState.bind(this);
+
+        this.state = { name: '', position: '' };
+
+        if (ResumeStore.getData()) {
+            const data = ResumeStore.getData();
+            this.state.name = data.name;
+            this.state.position = data.position;
+        }
+    }
+
+    updateState() {
+        console.log('updating state');
+        const data = ResumeStore.getData();
+        this.setState({ name: data.name, position: data.position });
+    }
+
+    componentDidMount() {
+        ResumeStore.addListener(this.updateState);
+    }
+
+    componentWillUnmount() {
+        ResumeStore.removeListener(this.updateState);
+    }
+
     render() {
         return (
             <div className="main-body">
-                <h1>Main Body</h1>
-                <Container header="Test content">
-                    <p>
-                        Bacon ipsum dolor amet short loin bacon cupim fatback kevin, doner frankfurter tenderloin.
-                        Turducken pork belly cupim doner rump sirloin, landjaeger pork chop bacon kielbasa bresaola
-                        short loin tri-tip ribeye alcatra. Hamburger strip steak pork turducken short loin, corned beef
-                        doner. Short ribs beef strip steak, pork belly jowl meatball swine brisket andouille leberkas
-                        chuck ham hock cupim.
-                    </p>
-                </Container>
+                <h1>{this.state.name}</h1>
+                <h2>{this.state.position}</h2>
             </div>
         );
     }
